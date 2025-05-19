@@ -19,7 +19,7 @@ class SteamLookupTest extends TestCase
 
         $this->assertEquals('76561198806141009', $response['id']);
         $this->assertEquals('Tebex', $response['username']);
-        $this->assertEquals('https://steamcdn-a.akamaihd.net/steamcommunity/public/images/avatars/c8/c86f94b0515600e8f6ff869d13394e05cfa0cd6a.jpg', $response['avatar']);;
+        $this->assertEquals('https://avatars.steamstatic.com/c86f94b0515600e8f6ff869d13394e05cfa0cd6a.jpg', $response['avatar']);;
     }
 
     public function test_it_handles_a_username_lookup()

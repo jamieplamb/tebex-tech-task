@@ -16,6 +16,10 @@ class XblLookup extends PlatformLookup
     {
         $response = $this->makeCall("https://ident.tebex.io/usernameservices/3/username/$username?type=username");
 
+        if (property_exists($response, 'error')) {
+            throw new UnexpectedLookupResponseException($response->error->message);
+        }
+
         return [
             'id' => $response->id,
             'username' => $response->username,
@@ -31,6 +35,10 @@ class XblLookup extends PlatformLookup
     protected function idLookup(string $id): array
     {
         $response = $this->makeCall("https://ident.tebex.io/usernameservices/3/username/$id");
+
+        if (property_exists($response, 'error')) {
+            throw new UnexpectedLookupResponseException($response->error->message);
+        }
 
         return [
             'id' => $response->id,
